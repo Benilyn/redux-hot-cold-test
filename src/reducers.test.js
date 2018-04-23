@@ -25,32 +25,38 @@ describe('reducer', () => {
         expect(state).toBe(currentState);
     }); {/* should return the current state on an unknown action */}
 
-//    it('restart game', () => {
-//   	let state = {
-//    		guesses : [3,6,9],
-//    		feedback : 'cold',
-//    		correctAnswer : 54
-//    	};
+   	it('restart game', () => {
+	   	let state = {
+	    		guesses : [3,6,9],
+	    		feedback : 'cold',
+	    		correctAnswer : 54
+	    	};
     	
-//    	state = reducer(state, {type: 'RESTART_GAME'});
-//    	expect(state/).toEqual({
-//			guesses: [],
-//   		feedback: 'Make your guess!',
-//    		auralStatus: '',
-//    		correctAnswer: state.correctAnswer
-//		});
-//		console.log(state.correctAnswer);
-//    }); {/* restart game*/}
+    	state = reducer(state, {type: 'RESTART_GAME', correctAnswer:85});
+    	expect(state).toEqual({
+			guesses: [],
+   			feedback: 'Make your guess!',
+    		auralStatus: '',
+    		correctAnswer: state.correctAnswer
+		});
+    }); {/* restart game*/}
 
-//    it('make guess', () => {
-//    	let state = {
-//    		guesses: [],
-//    		feedback: '',
-//    		correctAnswer: 54
-//    	}
-//    	state = reducer(state, makeGuess(32));
-//    	console.log(state.feedback);
-//    	expect(state.guess).toEqual([32]);
-//    	expect(state.feedback).toEqual(`You're Warm.`);
-//    }); {/* make guess */}
+    it('make guess', () => {
+    	let state = {
+    		guesses: [],
+    		feedback: '',
+    		correctAnswer: 54
+    	}
+    	state = reducer(state, makeGuess(32));
+    	expect(state.guesses).toEqual([32]);
+    	expect(state.feedback).toEqual(`You're Warm.`);
+
+    	state = reducer(state, makeGuess(60));
+    	expect(state.guesses).toEqual([32, 60]);
+    	expect(state.feedback).toEqual(`You're Hot!`);
+
+    	state = reducer(state, makeGuess(54));
+    	expect(state.guesses).toEqual([32, 60, 54]);
+    	expect(state.feedback).toEqual(`You got it!`);
+    }); {/* make guess */}
 });
