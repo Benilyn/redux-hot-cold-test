@@ -15,7 +15,7 @@ describe('<TopNav />', () => {
         expect (wrapper.find('.new').length).toEqual(1);
     }); {/* Should be able to click "WHAT?" button */}
 
-    it.only('Should dispatch restartGame', () => {
+    it('Should dispatch restartGame', () => {
         const dispatch = jest.fn();
         const wrapper = shallow(<TopNav dispatch={dispatch}/>);
         wrapper.find('.new').simulate('click');

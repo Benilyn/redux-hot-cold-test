@@ -2,6 +2,7 @@ import React from 'react';
 import {shallow} from 'enzyme';
 
 import Header from './header';
+import TopNav from './top-nav';
 
 describe('<Header />', () => {
 	it('Renders without crashing', () => {
@@ -10,7 +11,7 @@ describe('<Header />', () => {
 
     it('Renders TopNav', () => {
         const wrapper = shallow(<Header />);
-//        expect (wrapper.find('TopNav').length).toEqual(1);
+        expect (wrapper.contains(<TopNav />)).toEqual(true);
     });
 
     it('Renders header "Hot or Cold"', () => {
