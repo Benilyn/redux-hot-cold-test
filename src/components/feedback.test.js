@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import {Feedback} from './aural-status';
+import {Feedback} from './feedback';
 
 
 describe('Feedback', () => {
@@ -10,9 +10,9 @@ describe('Feedback', () => {
     });
 
 
-//	it('renders feedback', () => {
-//		let feedback = 'checking for feedback';
-//		let wrapper = shallow(<Feedback feedback={feedback} />);
-//		expect(wrapper.contains(feedback)).toEqual(true);
-//	});
+	it('renders feedback', () => {
+		let feedback = 'checking for feedback';
+		let wrapper = shallow(<Feedback feedback={feedback} />);
+		expect(wrapper.contains(feedback)).toEqual(true);
+	});
 });
